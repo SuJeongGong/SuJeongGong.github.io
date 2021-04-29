@@ -56,5 +56,3 @@ order: 1
         test_loss, test_acc = model.evaluate(test_images, test_labels)
         print('test_loss:', test_loss)
         print('test_acc:', test_acc)
-
-![](//placehold.it/800x600)
