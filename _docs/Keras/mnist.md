@@ -1,6 +1,6 @@
 ---
 title: mnist
-category:
+category: Keras
 order: 1
 ---
 1. 데이터 가져오기 
