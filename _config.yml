@@ -2,7 +2,7 @@
 # Site
 
 title: GGong
-url: "https://long-pig.cloudvent.net"
+url: "https://sujeonggong.github.io/"
 baseurl:
 google_analytics_key:
 show_full_navigation: true
@@ -15,7 +15,7 @@ author:
   email: 0_sujeong@naver.com
   twitter: # twitter username without the @ symbol
 social:
-  name: Edition Template
+  name: 0_2_jeong
   links:
     - https://github.com/CloudCannon/edition-jekyll-template
 
