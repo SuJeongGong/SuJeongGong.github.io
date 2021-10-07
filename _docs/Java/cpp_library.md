@@ -27,17 +27,17 @@ order: 1
 
 먼저 java에서 c++라이브러리와 연동할 클래스 파일을 만들어 주어야 합니다.  
 그리고 그 안에   
-'''java
+```java
 static {
         System.loadLibrary("libfota_10061727");
     }
-'''
+```
 
 이렇게 .dll 파일 이름을 넣어주어서 C++을 연결 시켜주고,  
 
-'''java
+```java
 public native String run(String a, int b);
-'''
+```
 
 이런식으로 c++에서 작성 되어있는 (혹은 작성할) 메서드를 구현하지 않고 선언만 해놓습니다.  
 여기서 중요한 점은 "native"라는 키워드를 메서드에 붙여서 native 메서드로 만들어야합니다.  
@@ -64,18 +64,18 @@ cmd에서 .java파일이 있는 위치로 이동해
 - 하지만 .cpp에서는 메서드 매개변수를 작성하는 부분에 변수명을 넣어야 한다는 점
 - 매개변수 타입이 string은 jstring과 같이 앞에 j가 붙는 원래 C++에서는 사용되지 않는 타입이라 변환해서 사용해야 한다는 점
   - jstring -> string 변환
-  '''C++
+  ```C++
   const char *temp = env->GetStringUTFChars([jstring 변수명], NULL);	//TEST_COMP
   std::string [string 변수명] = std::string(temp);
-  '''
+  ```
 
   - jint -> int 변환
-  '''C++
+  ```C++
   int TEST_SB_TYPE = (int)SB_TYPE;
-  '''
+  ```
 
 - c++에서 printf문으로 출력한 것은 java콘솔에서 찍히지 않는다. 확인하려면 txt파일로 내보내서 확인하는 것도 좋은 방법
-'''C++
+```C++
 FILE *wfp = NULL;
 wfp = fopen("경로\\time.txt", "w");   // 열기
 if (wfp == NULL)
@@ -85,7 +85,7 @@ if (wfp == NULL)
 }
 fprintf(wfp, "COMP  \t\t: %s\n", TEST_COMP.c_str());
 fclose(wfp);   // 닫기
-'''
+```
   - 경로를 구분할 때에는 \가 아니라 \\이렇게 두개를 붙여서 구분!
 - C++ -> java String 리턴시 한글은 깨지는 오류가 있었는데 영문만 리턴할거라 따로 해결하지 않고 사용했습니다. 찾아보셔야할것같아요!
 - java -> C++ String도 한글이 깨지는 경우가 있다고 하던데 저는 따로 깨지지 않아서 해결하지 않았습니다. 필요시 검색해보세요
