@@ -23,22 +23,22 @@ jsp 프로젝트나 spring 프로젝트를 완성하면 배포해서 리눅스 �
 
 2. port 열기
   1. port를 열기 전에 어떤 port가 열려있는지 확인합니다. 
-  '''
+  `
   firewall-cmd --list-all
-  '''
+  `
   2. 사용하지 않는 port 번호 중에서 원하는 port 번호를 개방합니다.
-  '''
+  `
   firewall-cmd --zone=public --permanent --add-port=[원하는 번호]/tcp
-  '''
+  `
   - 열었던 port를 삭제하고 싶다면
-  '''
+  `
   firewall-cmd --zone=public --permanent --remove-port=[삭제한 번호]/tcp
-  '''
+  `
 
   3. 방화벽을 재가동 합니다.
-  '''
+  `
   firewall-cmd --reload
-  '''
+  `
 
 3. server.xml 파일 수정
 
