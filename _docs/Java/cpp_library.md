@@ -66,18 +66,18 @@ cmd에서 .java파일이 있는 위치로 이동해
 - 하지만 .cpp에서는 메서드 매개변수를 작성하는 부분에 변수명을 넣어야 한다는 점
 - 매개변수 타입이 string은 jstring과 같이 앞에 j가 붙는 원래 C++에서는 사용되지 않는 타입이라 변환해서 사용해야 한다는 점
   - jstring -> string 변환
-  ```C++
+  ```c++
   const char *temp = env->GetStringUTFChars([jstring 변수명], NULL);	//TEST_COMP
   std::string [string 변수명] = std::string(temp);
   ```
 
   - jint -> int 변환
-  ```C++
+  ```c++
   int TEST_SB_TYPE = (int)SB_TYPE;
   ```
 
 - c++에서 printf문으로 출력한 것은 java콘솔에서 찍히지 않는다. 확인하려면 txt파일로 내보내서 확인하는 것도 좋은 방법
-```C++
+```c++
 FILE *wfp = NULL;
 wfp = fopen("경로\\time.txt", "w");   // 열기
 if (wfp == NULL)
