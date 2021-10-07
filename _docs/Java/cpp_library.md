@@ -22,38 +22,52 @@ order: 1
 3. 만들어진 헤더파일을 구현하는 c++ 코드 작성
 
 
-1. java 코드 작성
-먼저 java에서 c++라이브러리와 연동할 클래스 파일을 만들어 주어야 합니다.
-그리고 그 안에 
 
-        static {
-        		System.loadLibrary("libfota_10061727");
-        	}
+1. java 코드 작성
+
+먼저 java에서 c++라이브러리와 연동할 클래스 파일을 만들어 주어야 합니다.
+
+그리고 그 안에 
+'''java
+static {
+        System.loadLibrary("libfota_10061727");
+    }
+'''
 
 이렇게 .dll 파일 이름을 넣어주어서 C++을 연결 시켜주고,
 
-        public native String run(String a, int b);
+'''java
+public native String run(String a, int b);
+'''
 
 이런식으로 c++에서 작성 되어있는 (혹은 작성할) 메서드를 구현하지 않고 선언만 해놓습니다.
+
 여기서 중요한 점은 "native"라는 키워드를 메서드에 붙여서 native 메서드로 만들어야합니다.
+
 또 여기의 메서드 이름은 실제 C++에 정의된 메서드 이름과 달라도 됩니다.
 
 2. 작성한 java코드로 c++의 헤더파일 만들기
+
 이렇게 클래스를 작성했다면 .java라고 끝나는 파일을 .class 파일로 만들고 .class파일을 .h 파일로 만들어 줄 겁니다.
+
 다른 방법도 있다고 하는데 저는 cmd를 이용해서 진행 했습니다.
+
 cmd에서 .java파일이 있는 위치로 이동해
 
-        javac test.java
+    javac test.java
 
 명령어를 입력해 .java -> .class로 바꾼뒤
+
 위치를 다시 패키지가 있는 위치로 이동해 패키지명이 com.test.www 였다면
 
-        javah com.test.www.[java파일명]
+    javah com.test.www.[java파일명]
 
 명령어를 실행해서 .h파일을 만들어 냅니다.
 
 3. 만들어진 헤더파일을 구현하는 c++ 코드 작성
+
 이렇게 만들어진 헤더파일을 가지고 C++코드를 작성하면됩니다.
+
 저는 C++를 몰라서 조금 힘들었습니다,,ㅠㅠ
 
 참고할 점
@@ -80,10 +94,11 @@ cmd에서 .java파일이 있는 위치로 이동해
         }
         fprintf(wfp, "COMP  \t\t: %s\n", TEST_COMP.c_str());
         fclose(wfp);   // 닫기
-        
+
     - 경로를 구분할 때에는 \가 아니라 \\이렇게 두개를 붙여서 구분!
 - C++ -> java String 리턴시 한글은 깨지는 오류가 있었는데 영문만 리턴할거라 따로 해결하지 않고 사용했습니다. 찾아보셔야할것같아요!
 - java -> C++ String도 한글이 깨지는 경우가 있다고 하던데 저는 따로 깨지지 않아서 해결하지 않았습니다. 필요시 검색해보세요
 
 
-참고 : https://sungcheol-kim.gitbook.io/jni-tutorial/ 
+참고
+<https://sungcheol-kim.gitbook.io/jni-tutorial/>
