@@ -13,7 +13,7 @@ order: 1
   ```python
   list_name[start_index : end_index] 
   ```
-  list_name이라는 리스트가 있다고 할 때,list_name의 start_index부터 end_index -1까지를 리스트로 반환한다.
+  list_name이라는 리스트가 있다고 할 때,list_name의 start_index부터 end_index -1까지를 리스트로 반환한다.  
   ```python                    
   list_name = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   list_name_2 = list_name[1:5]
@@ -22,9 +22,11 @@ order: 1
   [2, 3, 4, 5]
   ```
 
+
 ## 2. tuple
 - - -
-  - list와 거의 비슷한 데이터 타입, 다른점은 값을 변경 할 수 없다는 점이다.
+  - list와 거의 비슷한 데이터 타입, 다른점은 값을 변경 할 수 없다는 점이다.  
+
 
 ## 3. dictionary
 - - -  

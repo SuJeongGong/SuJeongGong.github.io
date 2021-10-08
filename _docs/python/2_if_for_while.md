@@ -8,7 +8,8 @@ order: 2
   - if ... elif ... else ... 식의 문법 
   - 조건문, 조건식을 통해서 True, False값이 나오고 True일 때 실행됨
   - 비교 연산자(<,>,== 등)를 이용하는 방법
-  - in 연산자를 이용하는 방법 : list, dict ,,,
+  - in 연산자를 이용하는 방법 : list, dict ,,,  
+
 
 
 ## 2. for
@@ -21,7 +22,9 @@ order: 2
   - list comprehension : 리스트의 []안에 사용해서 요소를 정의하는 방법
   ```python
   list = [i for i in range(10)]
-  ```
+  ```  
+
+
 ## 3. while
 -----
   - 반복문 
