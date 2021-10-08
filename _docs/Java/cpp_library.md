@@ -46,14 +46,14 @@ public native String run(String a, int b);
 - - -
 이렇게 클래스를 작성했다면 .java라고 끝나는 파일을 .class 파일로 만들고 .class파일을 .h 파일로 만들어 줄 겁니다.  
 다른 방법도 있다고 하는데 저는 cmd를 이용해서 진행 했습니다.  
-cmd에서 .java파일이 있는 위치로 이동해  \
-```md
-    javac test.java
+cmd에서 .java파일이 있는 위치로 이동해  
+```
+javac test.java
 ```
 명령어를 입력해 .java -> .class로 바꾼뒤  
 위치를 다시 패키지가 있는 위치로 이동해 패키지명이 com.test.www 였다면
 ```  
-    javah com.test.www.<mark>java파일명</mark>
+javah com.test.www.[java파일명]
 ```
 명령어를 실행해서 .h파일을 만들어 냅니다.
 
