@@ -9,7 +9,7 @@ order: 1
 처음 해보는 일이라 굉장히 헤맸지만,,, 그래서 까먹지 않으려고 정리해보겠습니다.  
 기억을 진행하면서 기록한 것이 아니라 명렁어나 코드는 약간 다를 수 있습니다.  
 
-먼저 **JNI**라는 라이브러리를 이용해서 연동할 겁니다.  
+먼저 <mark>**JNI**</mark>라는 라이브러리를 이용해서 연동할 겁니다.  
 특징으로는 java는 원래 os에 종속되지 않지만, 이걸 사용하면 os 종속성이 생기게 됩니다.  
 
 작업환경
@@ -24,12 +24,12 @@ order: 1
 
 
 ## 1. java 코드 작성
-
+- - -
 먼저 java에서 c++라이브러리와 연동할 클래스 파일을 만들어 주어야 합니다.  
 그리고 그 안에   
 ```java
 static {
-        System.loadLibrary("libfota_10061727");
+        System.loadLibrary("<mark>dll파일이름</mark>");
     }
 ```
 
@@ -44,6 +44,7 @@ public native String run(String a, int b);
 또 여기의 메서드 이름은 실제 C++에 정의된 메서드 이름과 달라도 됩니다.  
 
 ## 2. 작성한 java코드로 c++의 헤더파일 만들기  
+- - -
 이렇게 클래스를 작성했다면 .java라고 끝나는 파일을 .class 파일로 만들고 .class파일을 .h 파일로 만들어 줄 겁니다.  
 다른 방법도 있다고 하는데 저는 cmd를 이용해서 진행 했습니다.  
 cmd에서 .java파일이 있는 위치로 이동해  
@@ -53,11 +54,12 @@ cmd에서 .java파일이 있는 위치로 이동해
 명령어를 입력해 .java -> .class로 바꾼뒤  
 위치를 다시 패키지가 있는 위치로 이동해 패키지명이 com.test.www 였다면  
 `
-  javah com.test.www.[java파일명]
+  javah com.test.www.<mark>java파일명</mark>
 `
 명령어를 실행해서 .h파일을 만들어 냅니다.
 
 ## 3. 만들어진 헤더파일을 구현하는 c++ 코드 작성  
+- - -  
 이렇게 만들어진 헤더파일을 가지고 C++코드를 작성하면됩니다.  
 저는 C++를 몰라서 조금 힘들었습니다,,ㅠㅠ  
 
@@ -67,8 +69,8 @@ cmd에서 .java파일이 있는 위치로 이동해
 - 매개변수 타입이 string은 jstring과 같이 앞에 j가 붙는 원래 C++에서는 사용되지 않는 타입이라 변환해서 사용해야 한다는 점
   - jstring -> string 변환
   ```c++
-  const char *temp = env->GetStringUTFChars([jstring 변수명], NULL);	//TEST_COMP
-  std::string [string 변수명] = std::string(temp);
+  const char *temp = env->GetStringUTFChars(<mark>jstring 변수명</mark>, NULL);	//TEST_COMP
+  std::string <mark>변수명</mark> = std::string(temp);
   ```
 
   - jint -> int 변환
@@ -88,9 +90,9 @@ if (wfp == NULL)
 fprintf(wfp, "COMP  \t\t: %s\n", TEST_COMP.c_str());
 fclose(wfp);   // 닫기
 ```
-  - 경로를 구분할 때에는 \가 아니라 \\이렇게 두개를 붙여서 구분!
-- C++ -> java String 리턴시 한글은 깨지는 오류가 있었는데 영문만 리턴할거라 따로 해결하지 않고 사용했습니다. 찾아보셔야할것같아요!
-- java -> C++ String도 한글이 깨지는 경우가 있다고 하던데 저는 따로 깨지지 않아서 해결하지 않았습니다. 필요시 검색해보세요
+  - 경로를 구분할 때에는 \가 아니라 <mark>\\</mark>이렇게 두개를 붙여서 구분!
+- <mark>C++ -> java</mark> String 리턴시 한글은 깨지는 오류가 있었는데 영문만 리턴할거라 따로 해결하지 않고 사용했습니다. 찾아보셔야할것같아요!
+- <mark>java -> C++</mark> String도 한글이 깨지는 경우가 있다고 하던데 저는 따로 깨지지 않아서 해결하지 않았습니다. 필요시 검색해보세요
 
 
 참고
