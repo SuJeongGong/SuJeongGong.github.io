@@ -15,11 +15,13 @@ jsp 프로젝트나 spring 프로젝트를 완성하면 배포해서 리눅스 �
 6. 서비스 실행  
 
 
+
 1. 기존에 있던 tomcat 복사  
 - - -  
-  1. 기존에 있던 tomcat 폴더를 복사합니다.
-  2. 그 안에 webapps 폴더에서 ROOT 폴더와 ROOT.war파일을 삭제합니다.
-  - 체크해야할 부분 복사한 폴더의 권한을 체크합니다
+    1. 기존에 있던 tomcat 폴더를 복사합니다.
+    2. 그 안에 webapps 폴더에서 ROOT 폴더와 ROOT.war파일을 삭제합니다.
+    - 체크해야할 부분 복사한 폴더의 권한을 체크합니다
+
 
 
 2. port 열기
@@ -36,19 +38,28 @@ jsp 프로젝트나 spring 프로젝트를 완성하면 배포해서 리눅스 �
   `
   firewall-cmd --zone=public --permanent --remove-port=[삭제한 번호]/tcp
   `
-
   3. 방화벽을 재가동 합니다.
   `
   firewall-cmd --reload
   `
 
+
+
 3. server.xml 파일 수정
 - - -  
 
+
+
 4. war파일 서버로 옮기기
 - - -  
+
+
+
 5. tomcat 서비스 복사하기 
 - - -  
+
+
+
 6. 서비스 실행  
 - - -  
 
