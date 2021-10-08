@@ -13,7 +13,7 @@ description: Product documentation template for Jekyll.
 author:
   name: SuJeong Gong
   email: 0_sujeong@naver.com
-  twitter: # twitter username without the @ symbol
+  # twitter: # twitter username without the @ symbol
 social:
   name: 0_2_jeong
   links:
